@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sukumar Govindaraj Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Landing Page Section -->
+    <section id="landing" class="landing-page">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="/images/bv/v3.mp4" type="video/mp4">
+        </video>
+        <div class="content-container">
+            <img src="/images/profile.png" alt="Profile Icon" class="profile-icon">
+            <h1 class="profile-name">Sukumar Govindaraj</h1>
+            <div class="typing-effect"></div>
+            <button class="reel-button">more</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="/images/bv/v7.mp4" type="video/mp4">
+        </video>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    I'm Sukumar Govindaraj, a dedicated Data Analyst with a background in Machine Learning and AI. 
+                    I bring data-driven insights and a commitment to solving complex problems. My goal is to utilize 
+                    my analytical skills to create impactful solutions in the industry.
+                </p>
+                <div class="about-buttons">
+                    <button class="about-button">Data Analysis</button>
+                    <button class="about-button">Machine Learning</button>
+                    <button class="about-button">AI Specialist</button>
+                </div>
+                <a href="#projects" class="about-arrow">➔</a>
+            </div>
+            <div class="about-image">
+                <img src="/images/gifs/g2.gif" alt="Sukumar Govindaraj">
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Landing Page -->
+    <section class="project-landing">
+        <h1 class="all-projects-title">
+            <span>P</span>
+            <span>R</span>
+            <span>O</span>
+            <span>J</span>
+            <span>E</span>
+            <span>C</span>
+            <span>T</span>
+            <span>S</span>
+        </h1>
+        <div class="scroll-indicator">
+            <span class="arrow">↓</span>
+        </div>
+    </section>
+
+    <!-- Projects Grid Section -->
+    <section id="projects-section">
+        <section id="projects" class="projects-grid">
+            <div class="project-card" style="background-image: url('/images/gifs/g6.gif');">
+                <div class="project-content">
+                    <h2>Project Title 1</h2>
+                    <p>Brief description of the project goes here.</p>
+                </div>
+            </div>
+            <div class="project-card" style="background-image: url('/images/gifs/g6.gif');">
+                <div class="project-content">
+                    <h2>Project Title 2</h2>
+                    <p>Brief description of the project goes here.</p>
+                </div>
+            </div>
+            <div class="project-card" style="background-image: url('/images/gifs/g6.gif');">
+                <div class="project-content">
+                    <h2>Project Title 3</h2>
+                    <p>Brief description of the project goes here.</p>
+                </div>
+            </div>
+            <div class="project-card" style="background-image: url('/images/gifs/g6.gif');">
+                <div class="project-content">
+                    <h2>Project Title 4</h2>
+                    <p>Brief description of the project goes here.</p>
+                </div>
+            </div>
+            <div class="project-card" style="background-image: url('/images/gifs/g6.gif');">
+                <div class="project-content">
+                    <h2>Project Title 5</h2>
+                    <p>Brief description of the project goes here.</p>
+                </div>
+            </div>
+            <div class="project-card" style="background-image: url('/images/gifs/g6.gif');">
+                <div class="project-content">
+                    <h2>Project Title 6</h2>
+                    <p>Brief description of the project goes here.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js"></script>
+
+</body>
+</html>

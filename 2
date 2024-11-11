@@ -1,0 +1,841 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Landing Page Styling with Background Image */
+.landing-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('/images/land.png') no-repeat center center fixed;
+    background-size: cover;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.landing-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Matte black with 70% opacity */
+    z-index: 1;
+}
+
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.profile-name {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+}
+
+/* Initial styling for profile name */
+.profile-name span {
+    display: inline-block;
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Falling animation (when scrolling down) */
+.profile-name.falling span {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+/* Rising animation (when scrolling up) */
+.profile-name.rising span {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Staggered delay for each character */
+.profile-name span:nth-child(1) { transition-delay: 0s; }
+.profile-name span:nth-child(2) { transition-delay: 0.1s; }
+.profile-name span:nth-child(3) { transition-delay: 0.2s; }
+.profile-name span:nth-child(4) { transition-delay: 0.3s; }
+.profile-name span:nth-child(5) { transition-delay: 0.4s; }
+.profile-name span:nth-child(6) { transition-delay: 0.5s; }
+.profile-name span:nth-child(7) { transition-delay: 0.6s; }
+.profile-name span:nth-child(8) { transition-delay: 0.7s; }
+.profile-name span:nth-child(9) { transition-delay: 0.8s; }
+.profile-name span:nth-child(10) { transition-delay: 0.9s; }
+/* Repeat for each character as needed */
+
+.typing-effect {
+    color: #d4a373;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 10px;
+    height: 2rem;
+}
+
+.scroll-down {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.7);
+    opacity: 0.8;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+.scroll-down:hover {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* About Section Styling with Background Video */
+#about {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+    color: #333;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.5; /* Adjust opacity for better readability */
+}
+.about-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 40px; /* Adjust padding to make space for the images */
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+}
+
+
+/* Profile Image (P1) Styling */
+.profile-image {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #4A90E2;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Word Cloud Image (P2) Styling */
+.wordcloud-image {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #4A90E2;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Text Content Styling */
+.text-content {
+    max-width: 400px;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+
+.text-content h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.text-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* About Content Styling */
+.about-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-content {
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9); /* White background for text visibility */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .about-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+/* Text Content Styling */
+.text-content {
+    max-width: 400px;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+}
+
+.text-content h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.text-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* Stack vertically on smaller screens */
+    }
+    .profile-image, .wordcloud-image {
+        margin-bottom: 15px;
+    }
+}
+.about-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+
+.about-text {
+    max-width: 500px;
+    text-align: left;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-text p strong {
+    color: #333;
+}
+
+/* Education --------------------------------------------*/
+
+/* Education Section Styling */
+#education {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: url('../images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+
+.education-background-text {
+    position: absolute;
+    font-size: 12vw;
+    color: rgba(0, 0, 0, 0.1); /* Darker color for better visibility */
+    font-weight: bold;
+    z-index: 1;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+}
+.education-content {
+    z-index: 2;
+    width: 80%;
+    max-width: 800px;
+}
+
+.education-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85); /* More opaque background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25); /* Darker shadow for depth */
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+.institution-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+    border: 3px solid #4A90E2; /* Darker border for visibility */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow to elevate the logo */
+}
+
+.education-details h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #333333; /* Darker font color for main title */
+}
+
+.education-details h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #555555; /* Slightly darker font color for subheading */
+    margin: 5px 0 15px;
+}
+
+.education-details p {
+    font-size: 0.9rem;
+    color: #666666; /* Darker font color for body text */
+    line-height: 1.6;
+}
+
+/* Animation for section fade-in */
+#education {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+#education.visible {
+    opacity: 1;
+}
+
+/* Work Experience */
+
+#work-experience {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: url('../images/work.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    overflow: hidden;
+}
+
+/* Background Title Styling */
+.work-background-title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5vw; /* Font size for background title */
+    color: rgba(255, 255, 255, 0.45); /* Increased opacity for a darker effect */
+    font-weight: bold;
+    z-index: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Work Content Grid */
+.work-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    z-index: 2;
+}
+
+/* Work Card */
+.work-card {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.work-card:hover {
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Header with Logo and Text */
+.card-header {
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.circle img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Text Content */
+.text-content h3 {
+    font-size: 1.2rem; /* Reduced font size for job title */
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.text-content .short-description {
+    font-size: 0.9rem; /* Adjusted font size for organization name */
+    color: #555;
+}
+
+.text-content .date-range {
+    font-size: 0.8rem; /* Adjusted font size for date range */
+    color: #777;
+}
+
+/* Read More Link Styling */
+.read-more {
+    color: #007BFF;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.9rem; /* Adjusted font size for Read More */
+    text-align: center;
+}
+
+/* Modal styling for expanded content */
+/* Modal styling for expanded content */
+.expanded-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 75vw;
+    height: 75vh;
+    max-width: 900px;
+    max-height: 700px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 2000; /* High z-index to stay above all other elements */
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2), 0px 10px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+
+/* Make modal visible when active */
+.expanded-content.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Background title styling with a lower z-index */
+#projects::before, .work-background-title {
+    z-index: 1; /* Ensures background title stays below the modal */
+}
+
+/* Expanded Header with Company Logo */
+.expanded-content .header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.expanded-content .header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.expanded-content h3 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.expanded-content .date-range {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Project Information */
+.project-info {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+}
+
+/* Section Titles in Expanded Content */
+.section-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Close Button */
+.close-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.close-button:hover {
+    background-color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .work-content {
+        grid-template-columns: 1fr;
+    }
+
+    .expanded-content {
+        width: 90vw;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+
+/* Projects */
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#projects {
+    position: relative;
+    padding: 50px 20px;
+    text-align: center;
+    color: #333;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Background Slideshow */
+#projects::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: 1;
+    animation: backgroundSlideshow 6s infinite;
+}
+
+@keyframes backgroundSlideshow {
+    0% { background-image: url('../images/proj_back1.jpg'); }
+    33% { background-image: url('../images/proj_back2.jpg'); }
+    66% { background-image: url('../images/proj_back3.jpg'); }
+    100% { background-image: url('../images/proj_back1.jpg'); }
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    color: #333;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Project Card */
+.project-card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Card content before expansion */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+
+.circle {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.circle img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Expanded content */
+.expanded-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 75vw; /* Expanded width to cover 75% of screen */
+    height: 75vh; /* Expanded height to cover 75% of screen */
+    max-width: 900px;
+    max-height: 700px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    text-align: left;
+    border: 2px solid #e0e0e0; /* Subtle border around the expanded card */
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2), 0px 10px 10px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
+}
+
+/* Visible class to show expanded content */
+.expanded-content.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Header with Project Logo and Name */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.project-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.expanded-content h3 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* Project Information */
+.project-info {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: #333;
+    text-align: left;
+}
+
+/* Project Images at the Bottom */
+.project-images {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.project-images img {
+    width: 48%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* GitHub Logo at the Bottom Center */
+.github-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.github-logo {
+    width: 40px;
+    transition: transform 0.2s;
+}
+
+.github-logo:hover {
+    transform: scale(1.1);
+}
+
+
+/* Read More link aligned to bottom center */
+.read-more {
+    color: #007BFF;
+    cursor: pointer;
+    text-decoration: underline;
+    align-self: center;
+    margin-top: auto; /* Ensures it’s at the bottom */
+}
+
+/* Close Button */
+.close-button {
+    margin-top: auto;
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .projects-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+
+

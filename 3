@@ -1,0 +1,187 @@
+// Landing page
+
+document.addEventListener("DOMContentLoaded", () => {
+    const profileName = document.querySelector(".profile-name");
+    let lastScrollTop = window.pageYOffset;
+
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.pageYOffset;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            profileName.classList.add("falling");
+            profileName.classList.remove("rising");
+        } else {
+            // Scrolling up
+            profileName.classList.remove("falling");
+            profileName.classList.add("rising");
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
+    });
+});
+
+
+
+const titles = ["Data Analyst", "Machine Learning Engineer", "AI Specialist"];
+let index = 0;
+
+function typeEffect() {
+    const titleElement = document.querySelector(".typing-effect");
+    let charIndex = 0;
+    let currentTitle = titles[index];
+    titleElement.innerHTML = "";
+    const typingInterval = setInterval(() => {
+        if (charIndex < currentTitle.length) {
+            titleElement.innerHTML += currentTitle[charIndex];
+            charIndex++;
+        } else {
+            clearInterval(typingInterval);
+            setTimeout(() => {
+                eraseEffect();
+            }, 1500);
+        }
+    }, 100);
+}
+
+function eraseEffect() {
+    const titleElement = document.querySelector(".typing-effect");
+    let charIndex = titleElement.innerHTML.length - 1;
+    const eraseInterval = setInterval(() => {
+        if (charIndex >= 0) {
+            titleElement.innerHTML = titleElement.innerHTML.substring(0, charIndex);
+            charIndex--;
+        } else {
+            clearInterval(eraseInterval);
+            index = (index + 1) % titles.length;
+            setTimeout(() => {
+                typeEffect();
+            }, 500);
+        }
+    }, 50);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    typeEffect();
+});
+
+
+
+// About Section
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutSection = document.querySelector("#about");
+
+    function checkScroll() {
+        const sectionPosition = aboutSection.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (sectionPosition < screenPosition) {
+            aboutSection.classList.add("visible");
+            window.removeEventListener("scroll", checkScroll); // Remove listener after visible
+        }
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Run once in case section is already in view
+});
+
+
+// Education
+
+document.addEventListener("DOMContentLoaded", () => {
+    const educationSection = document.querySelector("#education");
+
+    function checkScroll() {
+        const sectionPosition = educationSection.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (sectionPosition < screenPosition) {
+            educationSection.classList.add("visible");
+        }
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Run once in case section is already in view
+});
+
+
+//Work Experience
+document.addEventListener("DOMContentLoaded", () => {
+    const readMoreLinks = document.querySelectorAll(".read-more");
+
+    readMoreLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute("data-target");
+            const expandedContent = document.getElementById(targetId);
+            if (expandedContent) {
+                expandedContent.classList.add("visible");
+            }
+        });
+    });
+});
+
+function closeExpanded(targetId) {
+    const expandedContent = document.getElementById(targetId);
+    if (expandedContent) {
+        expandedContent.classList.remove("visible");
+    }
+}
+
+
+// Projects
+
+document.addEventListener("DOMContentLoaded", () => {
+    const readMoreLinks = document.querySelectorAll(".read-more");
+
+    readMoreLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute("data-target");
+            const expandedContent = document.getElementById(targetId);
+            if (expandedContent) {
+                expandedContent.classList.add("visible");
+            }
+        });
+    });
+});
+
+function closeExpanded(targetId) {
+    const expandedContent = document.getElementById(targetId);
+    if (expandedContent) {
+        expandedContent.classList.remove("visible");
+    }
+}
+
+
+function openProject(card) {
+    const modal = document.getElementById("projectModal");
+    const modalThumbnail = modal.querySelector(".modal-thumbnail");
+    const modalDescription = modal.querySelector(".modal-details p");
+    const projectImages = modal.querySelectorAll(".project-images img");
+
+    // Set the modal thumbnail and description dynamically based on the clicked card
+    modalThumbnail.src = card.querySelector(".thumbnail").src;
+    modalDescription.textContent = card.querySelector(".project-description").textContent;
+
+    // Set project images (replace these with your actual images for each project)
+    projectImages[0].src = "project-image1.jpg";
+    projectImages[1].src = "project-image2.jpg";
+    projectImages[2].src = "project-image3.jpg";
+
+    // Show the modal
+    modal.style.display = "flex";
+}
+
+function closeProject() {
+    const modal = document.getElementById("projectModal");
+    modal.style.display = "none";
+}
+
+// Close the modal when clicking outside the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById("projectModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};

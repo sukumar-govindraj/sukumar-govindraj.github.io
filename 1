@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="landing-page">
+        <div class="name-container">
+            <h1 class="profile-name">
+                <span>S</span><span>u</span><span>k</span><span>u</span><span>m</span><span>a</span><span>r</span>
+                <span> </span>
+                <span>G</span><span>o</span><span>v</span><span>i</span><span>n</span><span>d</span><span>a</span><span>r</span><span>a</span><span>j</span>
+            </h1>
+        </div>
+        <div class="scroll-down">Scroll Down</div>
+    </div>
+
+    <section id="about">
+        <!-- Background Video -->
+        <video autoplay muted loop class="background-video">
+            <source src="/images/about_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+        <!-- About Card -->
+        <div class="about-card">
+            <div class="about-content">
+                <!-- Profile Image (P1) -->
+                <img src="/images/profile.png" alt="Profile Picture" class="profile-image">
+    
+                <!-- About Text -->
+                <div class="text-content">
+                    <h2>About Me</h2>
+                    <p>Hello! I am Sukumar Govindaraj, a data scientist with a passion for storytelling. I believe that <strong>data and words are powerful tools to change the world</strong>.</p>
+                    <p>Most of my time is spent working on data analysis, visualization, and machine learning to derive insights and drive decision-making. When I'm not working, I enjoy creating personal projects and solving programming challenges.</p>
+                </div>
+    
+                <!-- Word Cloud Image (P2) -->
+                <img src="/images/wordcloud.png" alt="Word Cloud" class="wordcloud-image">
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="education">
+        <div class="education-background-text">EDUCATION</div>
+        <div class="education-content">
+            <div class="education-card">
+                <img src="/images/uta-logo.jpg" alt="Oklahoma State University Logo" class="institution-logo">
+                <div class="education-details">
+                    <h3>Master's in Business Analytics and Data Science</h3>
+                    <h4>Oklahoma State University | Aug 2021 - May 2023</h4>
+                    <p>Coursework: Programming for Data Science, Statistics for Data Science, Descriptive Analytics, Predictive Analytics, Data Warehousing, Research and Communication, Prescriptive Analytics, Data Visualization, Advanced Business Analytics</p>
+                </div>
+            </div>
+            <div class="education-card">
+                <img src="/images/vtu-logo.png" alt="Chaitanya Bharathi Institute Of Technology Logo" class="institution-logo">
+                <div class="education-details">
+                    <h3>Bachelor of Engineering in Computer Science</h3>
+                    <h4>Chaitanya Bharathi Institute Of Technology | 2015 - 2019</h4>
+                    <p>Coursework: Data Mining, Machine Learning, Design and Analysis of Algorithms, Artificial Intelligence, Software Engineering, Data Structures, Discrete Mathematics, Distributed Systems, Database Management Systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="work-experience">
+        <!-- Background Title -->
+        <div class="work-background-title">WORK EXPERIENCE</div>
+    
+        <!-- Work Content -->
+        <div class="work-content">
+
+            <!-- Work Card 1 -->
+            <div class="work-card">
+                <div class="card-header">
+                    <div class="circle">
+                        <img src="../images/uta-logo.jpg" alt="Company Logo">
+                    </div>
+                    <div class="text-content">
+                        <h3>Research Assistant</h3>
+                        <p class="short-description">Nano Technology Research Center, UTA</p>
+                        <p class="date-range">November 2023 – Current</p>
+                    </div>
+                </div>
+                <a href="#" class="read-more" data-target="job1-expanded">Read More</a>
+                <div class="expanded-content" id="job1-expanded">
+                    <div class="header">
+                        <img src="../images/uta-logo.jpg" alt="Company Logo">
+                        <h3>Research Assistant | Nano Technology Research Center, UTA</h3>
+                        <p class="date-range">November 2023 – Current</p>
+                    </div>
+                    <p class="project-info">Led a data science team in developing predictive models, collaborating with data scientists, and working closely with researchers to align model outcomes with research objectives and enhance experimental insights.</p>
+                    
+                    <!-- Additional Information Section -->
+                    <h4 class="section-title">Additional Information</h4>
+                    <ul class="additional-info">
+                        <li>Coordinated with developers to manage data pipelines and CI/CD deployments for web applications, reducing downtime by 5%.</li>
+                        <li>Enhanced model accuracy by implementing advanced algorithms and tuning techniques.</li>
+                    </ul>
+    
+                    <!-- Tools & Technologies Section -->
+                    <h4 class="section-title">Tools & Technologies Used</h4>
+                    <p class="tools-used">Python, R, SQL, Docker, Jenkins, AWS, TensorFlow, CI/CD Pipelines</p>
+                    
+                    <button class="close-button" onclick="closeExpanded('job1-expanded')">Close</button>
+                </div>
+            </div>
+    
+            <!-- Work Card 2 -->
+            <div class="work-card">
+                <div class="card-header">
+                    <div class="circle">
+                        <img src="../images/victorias-secret-logo.png" alt="Company Logo">
+                    </div>
+                    <div class="text-content">
+                        <h3>Research Assistant</h3>
+                        <p class="short-description">Nano Technology Research Center, UTA</p>
+                        <p class="date-range">November 2023 – Current</p>
+                    </div>
+                </div>
+                <a href="#" class="read-more" data-target="job1-expanded">Read More</a>
+                <div class="expanded-content" id="job1-expanded">
+                    <div class="header">
+                        <img src="../images/victorias-secret-logo.png" alt="Company Logo">
+                        <h3>Research Assistant | Nano Technology Research Center, UTA</h3>
+                        <p class="date-range">November 2023 – Current</p>
+                    </div>
+                    <p class="project-info">Led a data science team in developing predictive models, collaborating with data scientists, and working closely with researchers to align model outcomes with research objectives and enhance experimental insights.</p>
+                    
+                    <!-- Additional Information Section -->
+                    <h4 class="section-title">Additional Information</h4>
+                    <ul class="additional-info">
+                        <li>Coordinated with developers to manage data pipelines and CI/CD deployments for web applications, reducing downtime by 5%.</li>
+                        <li>Enhanced model accuracy by implementing advanced algorithms and tuning techniques.</li>
+                    </ul>
+    
+                    <!-- Tools & Technologies Section -->
+                    <h4 class="section-title">Tools & Technologies Used</h4>
+                    <p class="tools-used">Python, R, SQL, Docker, Jenkins, AWS, TensorFlow, CI/CD Pipelines</p>
+                    
+                    <button class="close-button" onclick="closeExpanded('job1-expanded')">Close</button>
+                </div>
+            </div>
+
+            <!-- Work Card 3 -->
+            <div class="work-card">
+                <div class="card-header">
+                    <div class="circle">
+                        <img src="../images/web-wings-logo.png" alt="Company Logo">
+                    </div>
+                    <div class="text-content">
+                        <h3>Research Assistant</h3>
+                        <p class="short-description">Nano Technology Research Center, UTA</p>
+                        <p class="date-range">November 2023 – Current</p>
+                    </div>
+                </div>
+                <a href="#" class="read-more" data-target="job1-expanded">Read More</a>
+                <div class="expanded-content" id="job1-expanded">
+                    <div class="header">
+                        <img src="../images/web-wings-logo.png" alt="Company Logo">
+                        <h3>Research Assistant | Nano Technology Research Center, UTA</h3>
+                        <p class="date-range">November 2023 – Current</p>
+                    </div>
+                    <p class="project-info">Led a data science team in developing predictive models, collaborating with data scientists, and working closely with researchers to align model outcomes with research objectives and enhance experimental insights.</p>
+                    
+                    <!-- Additional Information Section -->
+                    <h4 class="section-title">Additional Information</h4>
+                    <ul class="additional-info">
+                        <li>Coordinated with developers to manage data pipelines and CI/CD deployments for web applications, reducing downtime by 5%.</li>
+                        <li>Enhanced model accuracy by implementing advanced algorithms and tuning techniques.</li>
+                    </ul>
+    
+                    <!-- Tools & Technologies Section -->
+                    <h4 class="section-title">Tools & Technologies Used</h4>
+                    <p class="tools-used">Python, R, SQL, Docker, Jenkins, AWS, TensorFlow, CI/CD Pipelines</p>
+                    
+                    <button class="close-button" onclick="closeExpanded('job1-expanded')">Close</button>
+                </div>
+            </div>
+    
+            <!-- Add more work cards as needed -->
+        </div>
+    </section>
+    
+
+    <section id="projects">
+        <div class="education-background-text>Projects</div>
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <div class="circle">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                    </div>
+                    <h3>Project 1</h3>
+                    <p class="project-description">Short description</p>
+                    <a href="#" class="read-more" data-target="project1-expanded">Read More</a>
+                </div>
+                <div class="expanded-content" id="project1-expanded">
+                    <div class="header">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                        <h3>Project 1</h3>
+                    </div>
+                    <p class="project-info">Detailed information about Project 1 goes here. Explain the purpose, techniques, and outcomes.</p>
+                    <div class="project-images">
+                        <img src="../images/forage_logo.png" alt="Project Image 1">
+                        <img src="../images/forage_logo.png" alt="Project Image 2">
+                    </div>
+                    <a href="https://github.com/your-repo" target="_blank" class="github-link">
+                        <img src="../images/git-logo.png" alt="GitHub Logo" class="github-logo">
+                    </a>
+                    <button class="close-button" onclick="closeExpanded('project1-expanded')">Close</button>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <div class="circle">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                    </div>
+                    <h3>Project 1</h3>
+                    <p class="project-description">Short description</p>
+                    <a href="#" class="read-more" data-target="project1-expanded">Read More</a>
+                </div>
+                <div class="expanded-content" id="project1-expanded">
+                    <div class="header">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                        <h3>Project 1</h3>
+                    </div>
+                    <p class="project-info">Detailed information about Project 1 goes here. Explain the purpose, techniques, and outcomes.</p>
+                    <div class="project-images">
+                        <img src="../images/forage_logo.png" alt="Project Image 1">
+                        <img src="../images/forage_logo.png" alt="Project Image 2">
+                    </div>
+                    <a href="https://github.com/your-repo" target="_blank" class="github-link">
+                        <img src="../images/git-logo.png" alt="GitHub Logo" class="github-logo">
+                    </a>
+                    <button class="close-button" onclick="closeExpanded('project1-expanded')">Close</button>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <div class="circle">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                    </div>
+                    <h3>Project 1</h3>
+                    <p class="project-description">Short description</p>
+                    <a href="#" class="read-more" data-target="project1-expanded">Read More</a>
+                </div>
+                <div class="expanded-content" id="project1-expanded">
+                    <div class="header">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                        <h3>Project 1</h3>
+                    </div>
+                    <p class="project-info">Detailed information about Project 1 goes here. Explain the purpose, techniques, and outcomes.</p>
+                    <div class="project-images">
+                        <img src="../images/forage_logo.png" alt="Project Image 1">
+                        <img src="../images/forage_logo.png" alt="Project Image 2">
+                    </div>
+                    <a href="https://github.com/your-repo" target="_blank" class="github-link">
+                        <img src="../images/git-logo.png" alt="GitHub Logo" class="github-logo">
+                    </a>
+                    <button class="close-button" onclick="closeExpanded('project1-expanded')">Close</button>
+                </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <div class="circle">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                    </div>
+                    <h3>Project 1</h3>
+                    <p class="project-description">Short description</p>
+                    <a href="#" class="read-more" data-target="project1-expanded">Read More</a>
+                </div>
+                <div class="expanded-content" id="project1-expanded">
+                    <div class="header">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                        <h3>Project 1</h3>
+                    </div>
+                    <p class="project-info">Detailed information about Project 1 goes here. Explain the purpose, techniques, and outcomes.</p>
+                    <div class="project-images">
+                        <img src="../images/forage_logo.png" alt="Project Image 1">
+                        <img src="../images/forage_logo.png" alt="Project Image 2">
+                    </div>
+                    <a href="https://github.com/your-repo" target="_blank" class="github-link">
+                        <img src="../images/git-logo.png" alt="GitHub Logo" class="github-logo">
+                    </a>
+                    <button class="close-button" onclick="closeExpanded('project1-expanded')">Close</button>
+                </div>
+            </div>
+
+            <!-- Project Card 5 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <div class="circle">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                    </div>
+                    <h3>Project 1</h3>
+                    <p class="project-description">Short description</p>
+                    <a href="#" class="read-more" data-target="project1-expanded">Read More</a>
+                </div>
+                <div class="expanded-content" id="project1-expanded">
+                    <div class="header">
+                        <img src="../images/aa.png" alt="Project Logo" class="project-logo">
+                        <h3>Project 1</h3>
+                    </div>
+                    <p class="project-info">Detailed information about Project 1 goes here. Explain the purpose, techniques, and outcomes.</p>
+                    <div class="project-images">
+                        <img src="../images/forage_logo.png" alt="Project Image 1">
+                        <img src="../images/forage_logo.png" alt="Project Image 2">
+                    </div>
+                    <a href="https://github.com/your-repo" target="_blank" class="github-link">
+                        <img src="../images/git-logo.png" alt="GitHub Logo" class="github-logo">
+                    </a>
+                    <button class="close-button" onclick="closeExpanded('project1-expanded')">Close</button>
+                </div>
+            </div>
+
+            <!-- Add additional project cards similarly -->
+        </div>
+    </section>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
