@@ -1,0 +1,808 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/* General Styles */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    color:  rgb(16, 15, 1)
+}
+
+section {
+    opacity: 0; /* Fully transparent */
+    transform: translateY(50px); /* Start slightly below */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+/* Optional: Highlight a section when visible (for debugging or effects) */
+section.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+
+/* Landing Page */
+.landing-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+#backgrounds-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Ensure it's behind other content */
+    opacity: 0.57;
+    object-fit: cover;
+}
+
+
+/* Landing Page Background Video */
+.landing-page .background-video { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensure it's behind all content */
+    opacity: 0.5; /* Maintain semi-transparency */
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
+.profile-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+/* Style for the name */
+.profile-name {
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    font-size: 3.5rem; /* Adjust font size as needed */
+    font-weight: 350;
+    color: rgba(8, 8, 8, 0.6); /* Make text fill transparent */
+    /* -webkit-text-stroke: 2px rgba(51, 51, 51, 0.6); Semi-transparent outline */
+    text-align: center;
+    /* text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25); Subtle shadow for depth */
+    margin: 20px 0;
+    position: relative;
+    opacity: 1; /* Set overall opacity for additional transparency */
+}
+
+/* Applying gradient fill without affecting background */
+.profile-name::before {
+    content: "Sukumar Govindaraj"; /* Duplicate text content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(51, 51, 51, 0.6);
+    /* background: linear-gradient(45deg, #090909, #ffffff); Gradient color */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Transparent text fill */
+    mix-blend-mode: screen; /* Blend mode to ensure background shows through */
+    opacity: 1; /* Adjust opacity for a softer effect */
+    pointer-events: none; /* Prevent pseudo-element from blocking interactions */
+}
+
+.typing-effect {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: rgb(14, 1, 1);
+    opacity: 0.9;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Reel Button */
+.reel-button {
+    position: relative; /* Ensure it's above the background video */
+    z-index: 10; /* Higher than the background video */
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #4c604b;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Button Hover Effect */
+.reel-button:hover {
+    background-color: #556b2f; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+/* Center the button absolutely in the middle bottom */
+.content-container .reel-button {
+    position: absolute;
+    bottom: 5%; /* Position near the bottom of the screen */
+}
+
+
+/* Hover effect for the "More" button */
+.reel-button:hover {
+    background-color: #556b2f;
+}
+
+
+/* About Section */
+.about-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    background-color: transparent; /* No background color */
+}
+
+/* About Section Background Video */
+.about-section .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensure it's behind all content */
+    opacity: 0.7; /* Maintain semi-transparency */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    gap: 30px;
+    flex-wrap: wrap;
+    color: #f1f1f1;
+    opacity:0.9;
+}
+
+/* Text Styling */
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.about-text p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #e0e0e0;
+    text-align: left;
+}
+
+/* Button Styling */
+.about-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.about-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.about-button:hover {
+    background: #ffffff;
+    color: #234a38;
+}
+
+.about-arrow {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 20px;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    padding: 12px;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.about-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Project Section */
+
+
+.all-projects-title {
+    font-size: 2.5rem; /* Large font size to make it prominent */
+    font-weight: 700; /* Bold font weight */
+    color: #302c2c; /* White color for contrast */
+    text-align: center; /* Center-align the title */
+    margin: 20px 0; /* Add spacing around the title */
+    font-family: 'Arial', sans-serif; /* Clean, sans-serif font */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 2px; /* Add some spacing between letters */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+}
+
+/* Optional Animation for Title */
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.all-projects-title {
+    display: inline-flex;
+    gap: 2px; /* Space between letters */
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    text-transform: none; /* No transformation */
+    letter-spacing: 1px;
+}
+
+.all-projects-title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: letterFadeUp 5s ease forwards; /* Increased duration for slower letter animation */
+    animation-iteration-count: infinite; /* Infinite loop */
+    animation-direction: alternate; /* Alternate direction for smoother effect */
+}
+
+/* Animation keyframes */
+@keyframes letterFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px); /* Fade out and move up slightly */
+    }
+}
+
+
+
+
+.project-landing {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/images/bi/proj-land.png");
+    background-size: cover; /* Ensures the image covers the whole area */
+    background-position: center; /* Centers the image */
+    color: black;
+    text-align: center;
+}
+
+.animated-text {
+    font-size: 3.5rem;
+    animation: fadeZoom 2s ease-in-out infinite alternate;
+}
+
+@keyframes fadeZoom {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+.scroll-indicator .arrow {
+    font-size: 3rem;
+    color: black;
+    animation: bounce 1.5s infinite;
+    margin-top: 20px;
+    text-decoration: none; /* Removes underline */
+    border: none;  
+    outline: none;
+}
+
+.scroll-indicator-link:focus {
+    outline: none;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.reel-button {
+    animation: bounce 1.5s infinite;
+}
+
+.scroll-indicator .arrow {
+    animation: bounce 1.5s infinite;
+}
+
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.reel-button {
+    animation: bounce 1.5s infinite;
+}
+
+.scroll-indicator .arrow {
+    animation: bounce 1.5s infinite;
+}
+
+/* Project Section */
+#projects-section {
+    /* background-color: rgb(253, 240, 88); Fill with your preferred color */
+    /* background-image: url("/images/bi/projs.pppng");
+    background-size: cover;
+    background-position: center;
+    width: 100%; */
+    /* min-height: 100vh; Ensures it covers the full viewport height */
+    /* padding: 40px 0; */
+
+    height: 100vh; /* Ensure it has visible height */
+    background:rgb(253, 240, 88);  /* Add a background color to differentiate */
+        display: flex; /* Center content for testing */
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: #333;
+        opacity: 1; /* Make sure it's visible */
+}
+
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive layout with flexible column count */
+    gap: 30px; /* Increase gap between cards for better spacing */
+    padding: 40px 5vw;
+    max-width: 1200px; /* Limits the grid's maximum width */
+    margin: 0 auto; /* Center-align the grid within the container */
+    background-color: rgb(253, 240, 88); /* Background color */
+    background-image: url("/images/bi/projs.ppng"); /* Background image */
+    background-size: cover; /* Ensure the image covers the whole area */
+    background-position: center; /* Centers the image */
+    border-radius: 12px; /* Rounds the grid container, if desired */
+}
+
+
+.project-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square aspect ratio */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation on hover */
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+.project-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay background */
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Font family for text */
+}
+
+.project-content h2 {
+    font-size: 1.2rem; /* Adjusted font size for title */
+    font-weight: 600; /* Semi-bold font weight for the title */
+    margin: 0; /* Remove default margin */
+    padding-bottom: 5px; /* Add spacing below the title */
+}
+
+.project-content p {
+    font-size: 0.9rem; /* Smaller font size for description */
+    font-weight: 300; /* Light font weight for description */
+    margin: 0; /* Remove default margin */
+    line-height: 1.4; /* Improve readability */
+    opacity: 0.85; /* Slight transparency for a softer look */
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease forwards;
+}
+
+/* Scale Animation */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scale-up {
+    animation: scaleUp 1.5s ease forwards;
+}
+
+
+
+/* EDUCATION */
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Section Container */
+.section-container {
+    padding: 60px 20px;
+    background: #f7f9fc;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Card Row */
+.card-row {
+    display: flex; /* Arrange cards horizontally */
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px; /* Add padding to the card row */
+
+}
+
+/* Academic Card Styling */
+.academic-card, .work-card {
+    background: #ffffff;
+    flex: 1 ;/*1 calc(30% - 20px); Three cards per row */
+    max-width: 500px;
+    min-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px; /* Add margin to the cards for spacing */
+}
+
+.academic-card:hover, .work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo Styling */
+.academic-card-logo, .work-card-logo {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background: rgb(205, 172, 105);
+}
+
+.academic-card-logo img, .work-card-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Card Content */
+.academic-card-content, .work-card-content {
+    padding: 20px;
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555; /* Adjust the color as needed */
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333; /* Adjust the color as needed */
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+    
+
+
+}
+
+.academic-card-content h3, .work-card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.academic-card-content p, .work-card-content p,
+.academic-card-content ul, .work-card-content ul {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.academic-card-content ul li, .work-card-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .academic-card, .work-card {
+        flex: 1 1 calc(45% - 20px); /* Two cards per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .card-row {
+        flex-direction: column;
+    }
+
+    .academic-card, .work-card {
+        flex: 1 1 100%; /* Stack cards vertically on smaller screens */
+        max-width: 100%;
+    }
+}
+
+
+.full-page-section {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to multiple rows */
+    justify-content: space-around; /* Space cards evenly */
+    align-items: center;
+    width: 100%; /* Take full width of the section */
+}
+
+.academic-card, .work-card {
+    flex: 1; /* Make cards flexible to fill available space */
+    min-width: 300px; /* Minimum width to ensure visibility */
+    max-width: 500px; /* Maximum width to prevent excessive stretching */
+    height: auto; /* Let the content determine height */
+}
+
+.card-row .work-card, .card-row .academic-card {
+
+    transition:  0.3s ease-in-out;
+}
+
+#backgroundd-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .background-imagee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    transition: opacity 10s ease-in-out;
+  }
+  
+  /* Initial state: First image is visible */
+  .background-imagee:nth-child(1) {
+    opacity: 0.2;
+  }
+  
+  /* Subsequent images are hidden initially */
+  .background-imagee:nth-child(n+2) {
+    opacity: 0;
+  }
+
+  .certificate-image {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px; /* Increased padding */
+    text-align: center;
+    font-size: 16px; /* Base font size for the footer */
+}
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-size: 28px;
+  }
+  
+  .social-icons li {
+    margin: 0 10px;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+    padding: 15px; 
+  }
+  
+  .social-icons a:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .social-icons img {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px;
+    border-radius: 50%;
+  }
+  
+  .footer p {
+    font-size: 16px; /* Increased font size for copyright text */
+    margin-top: 20px;
+}
