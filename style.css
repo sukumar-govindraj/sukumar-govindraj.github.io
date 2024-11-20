@@ -788,18 +788,29 @@ body, html {
     padding: 15px; 
   }
   
-  .social-icons a:hover {
+.social-icons a:hover {
     background-color: #fff;
     color: #333;
-  }
+}
   
-  .social-icons img {
+.social-icons img {
     width: 24px; /* Adjust the size as needed */
     height: 24px;
     border-radius: 50%;
-  }
+}
   
-  .footer p {
+.footer p {
     font-size: 16px; /* Increased font size for copyright text */
     margin-top: 20px;
+}
+
+.backgrounds-videos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place the video behind other   
+ content */
 }
