@@ -87,10 +87,10 @@ section.visible {
     font-family: 'Poppins', sans-serif; /* Modern font */
     font-size: 3.5rem; /* Adjust font size as needed */
     font-weight: 350;
-    color: transparent; /* Make text fill transparent */
-    -webkit-text-stroke: 2px rgba(51, 51, 51, 0.6); /* Semi-transparent outline */
+    color: rgba(8, 8, 8, 0.6); /* Make text fill transparent */
+    /* -webkit-text-stroke: 2px rgba(51, 51, 51, 0.6); Semi-transparent outline */
     text-align: center;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+    /* text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25); Subtle shadow for depth */
     margin: 20px 0;
     position: relative;
     opacity: 1; /* Set overall opacity for additional transparency */
@@ -104,7 +104,8 @@ section.visible {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #090909, #ffffff); /*Gradient color*/
+    color: rgba(51, 51, 51, 0.6);
+    /* background: linear-gradient(45deg, #090909, #ffffff); Gradient color */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; /* Transparent text fill */
@@ -181,7 +182,7 @@ section.visible {
     height: 100%;
     object-fit: cover;
     z-index: -1; /* Ensure it's behind all content */
-    opacity: 0.3; /* Maintain semi-transparency */
+    opacity: 0.7; /* Maintain semi-transparency */
 }
 
 .about-content {
@@ -196,6 +197,7 @@ section.visible {
     gap: 30px;
     flex-wrap: wrap;
     color: #f1f1f1;
+    opacity:0.9;
 }
 
 /* Text Styling */
@@ -738,7 +740,7 @@ body, html {
   
   /* Initial state: First image is visible */
   .background-imagee:nth-child(1) {
-    opacity: 0.1;
+    opacity: 0.2;
   }
   
   /* Subsequent images are hidden initially */
@@ -746,6 +748,12 @@ body, html {
     opacity: 0;
   }
 
+  .certificate-image {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
 
   .footer {
