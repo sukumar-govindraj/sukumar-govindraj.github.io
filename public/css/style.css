@@ -12,7 +12,21 @@ html, body {
     height: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth; /* Smooth scrolling */
+    color:  rgb(16, 15, 1)
 }
+
+section {
+    opacity: 0; /* Fully transparent */
+    transform: translateY(50px); /* Start slightly below */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+/* Optional: Highlight a section when visible (for debugging or effects) */
+section.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
 
 /* Landing Page */
 .landing-page {
@@ -26,20 +40,29 @@ html, body {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.landing-page .background-video {
+
+#backgrounds-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Ensure it's behind other content */
+    opacity: 0.57;
+    object-fit: cover;
+}
+
+
+/* Landing Page Background Video */
+.landing-page .background-video { 
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
-    opacity: 0.5;
-}
-
-.reel-button:hover {
-    background-color: #556b2f;
-    transform: scale(1.05);
+    z-index: -1; /* Ensure it's behind all content */
+    opacity: 0.5; /* Maintain semi-transparency */
 }
 
 .content-container {
@@ -63,11 +86,11 @@ html, body {
 .profile-name {
     font-family: 'Poppins', sans-serif; /* Modern font */
     font-size: 3.5rem; /* Adjust font size as needed */
-    font-weight: 700;
-    color: transparent; /* Make text fill transparent */
-    -webkit-text-stroke: 2px rgba(51, 51, 51, 0.6); /* Semi-transparent outline */
+    font-weight: 350;
+    color: rgba(8, 8, 8, 0.6); /* Make text fill transparent */
+    /* -webkit-text-stroke: 2px rgba(51, 51, 51, 0.6); Semi-transparent outline */
     text-align: center;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+    /* text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25); Subtle shadow for depth */
     margin: 20px 0;
     position: relative;
     opacity: 1; /* Set overall opacity for additional transparency */
@@ -81,7 +104,8 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #090909, #ffffff); /*Gradient color*/
+    color: rgba(51, 51, 51, 0.6);
+    /* background: linear-gradient(45deg, #090909, #ffffff); Gradient color */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; /* Transparent text fill */
@@ -98,8 +122,10 @@ html, body {
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Position the "More" button below the name in the center */
+/* Reel Button */
 .reel-button {
+    position: relative; /* Ensure it's above the background video */
+    z-index: 10; /* Higher than the background video */
     display: inline-block;
     padding: 10px 30px;
     font-size: 1rem;
@@ -112,6 +138,12 @@ html, body {
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin-top: 20px;
     text-align: center;
+}
+
+/* Button Hover Effect */
+.reel-button:hover {
+    background-color: #556b2f; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 
@@ -127,6 +159,7 @@ html, body {
     background-color: #556b2f;
 }
 
+
 /* About Section */
 .about-section {
     position: relative;
@@ -140,6 +173,7 @@ html, body {
     background-color: transparent; /* No background color */
 }
 
+/* About Section Background Video */
 .about-section .background-video {
     position: absolute;
     top: 0;
@@ -147,8 +181,8 @@ html, body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
-    opacity: 0.3;
+    z-index: -1; /* Ensure it's behind all content */
+    opacity: 0.7; /* Maintain semi-transparency */
 }
 
 .about-content {
@@ -163,6 +197,7 @@ html, body {
     gap: 30px;
     flex-wrap: wrap;
     color: #f1f1f1;
+    opacity:0.9;
 }
 
 /* Text Styling */
@@ -335,6 +370,13 @@ html, body {
     color: black;
     animation: bounce 1.5s infinite;
     margin-top: 20px;
+    text-decoration: none; /* Removes underline */
+    border: none;  
+    outline: none;
+}
+
+.scroll-indicator-link:focus {
+    outline: none;
 }
 
 @keyframes bounce {
@@ -382,13 +424,22 @@ html, body {
 
 /* Project Section */
 #projects-section {
-    background-color: #000; /* Fill with your preferred color */
-    background-image: url("/images/bi/projs.png");
+    /* background-color: rgb(253, 240, 88); Fill with your preferred color */
+    /* background-image: url("/images/bi/projs.pppng");
     background-size: cover;
     background-position: center;
-    width: 100%;
-    min-height: 100vh; /* Ensures it covers the full viewport height */
-    padding: 40px 0;
+    width: 100%; */
+    /* min-height: 100vh; Ensures it covers the full viewport height */
+    /* padding: 40px 0; */
+
+    height: 100vh; /* Ensure it has visible height */
+    background:rgb(253, 240, 88);  /* Add a background color to differentiate */
+        display: flex; /* Center content for testing */
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: #333;
+        opacity: 1; /* Make sure it's visible */
 }
 
 
@@ -400,8 +451,8 @@ html, body {
     padding: 40px 5vw;
     max-width: 1200px; /* Limits the grid's maximum width */
     margin: 0 auto; /* Center-align the grid within the container */
-    background-color: #000; /* Background color */
-    background-image: url("/images/bi/projs.png"); /* Background image */
+    background-color: rgb(253, 240, 88); /* Background color */
+    background-image: url("/images/bi/projs.ppng"); /* Background image */
     background-size: cover; /* Ensure the image covers the whole area */
     background-position: center; /* Centers the image */
     border-radius: 12px; /* Rounds the grid container, if desired */
@@ -451,3 +502,307 @@ html, body {
     opacity: 0.85; /* Slight transparency for a softer look */
 }
 
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease forwards;
+}
+
+/* Scale Animation */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scale-up {
+    animation: scaleUp 1.5s ease forwards;
+}
+
+
+
+/* EDUCATION */
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Section Container */
+.section-container {
+    padding: 60px 20px;
+    background: #f7f9fc;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Card Row */
+.card-row {
+    display: flex; /* Arrange cards horizontally */
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px; /* Add padding to the card row */
+
+}
+
+/* Academic Card Styling */
+.academic-card, .work-card {
+    background: #ffffff;
+    flex: 1 ;/*1 calc(30% - 20px); Three cards per row */
+    max-width: 500px;
+    min-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px; /* Add margin to the cards for spacing */
+}
+
+.academic-card:hover, .work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo Styling */
+.academic-card-logo, .work-card-logo {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background: rgb(205, 172, 105);
+}
+
+.academic-card-logo img, .work-card-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Card Content */
+.academic-card-content, .work-card-content {
+    padding: 20px;
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555; /* Adjust the color as needed */
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333; /* Adjust the color as needed */
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+    
+
+
+}
+
+.academic-card-content h3, .work-card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.academic-card-content p, .work-card-content p,
+.academic-card-content ul, .work-card-content ul {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.academic-card-content ul li, .work-card-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .academic-card, .work-card {
+        flex: 1 1 calc(45% - 20px); /* Two cards per row for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .card-row {
+        flex-direction: column;
+    }
+
+    .academic-card, .work-card {
+        flex: 1 1 100%; /* Stack cards vertically on smaller screens */
+        max-width: 100%;
+    }
+}
+
+
+.full-page-section {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to multiple rows */
+    justify-content: space-around; /* Space cards evenly */
+    align-items: center;
+    width: 100%; /* Take full width of the section */
+}
+
+.academic-card, .work-card {
+    flex: 1; /* Make cards flexible to fill available space */
+    min-width: 300px; /* Minimum width to ensure visibility */
+    max-width: 500px; /* Maximum width to prevent excessive stretching */
+    height: auto; /* Let the content determine height */
+}
+
+.card-row .work-card, .card-row .academic-card {
+
+    transition:  0.3s ease-in-out;
+}
+
+#backgroundd-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .background-imagee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    transition: opacity 10s ease-in-out;
+  }
+  
+  /* Initial state: First image is visible */
+  .background-imagee:nth-child(1) {
+    opacity: 0.2;
+  }
+  
+  /* Subsequent images are hidden initially */
+  .background-imagee:nth-child(n+2) {
+    opacity: 0;
+  }
+
+  .certificate-image {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px; /* Increased padding */
+    text-align: center;
+    font-size: 16px; /* Base font size for the footer */
+}
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    font-size: 28px;
+  }
+  
+  .social-icons li {
+    margin: 0 10px;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+    padding: 15px; 
+  }
+  
+  .social-icons a:hover {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .social-icons img {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px;
+    border-radius: 50%;
+  }
+  
+  .footer p {
+    font-size: 16px; /* Increased font size for copyright text */
+    margin-top: 20px;
+}

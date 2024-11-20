@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Typing Effect for Landing Page
-    const titles = ["Data Analyst", "Machine Learning Engineer", "AI Specialist"];
+    const titles = ["Data Analysis", "Machine Learning", "Statistics", "Data Engineering"];
     let index = 0;
 
     function typeEffect() {
@@ -50,22 +50,93 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start the typing effect when the page loads
     typeEffect();
 
-    // Smooth Scroll to About Section on Button Click and Trigger Animation
+    // Scroll-triggered animations for all sections except #projects-section and #projects-landing
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+        if (section.id !== "projects-section" && section.id !== "projects-landing") { // Skip these sections
+            gsap.fromTo(
+                section,
+                { opacity: 0, y: 50 }, // Initial position
+                {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%", // Trigger when the section is in view
+                        end: "top 50%",
+                        toggleActions: "play none none reverse", // Play animation and reverse
+                    },
+                    opacity: 1,
+                    y: 0, // Reset position
+                    duration: 1.5,
+                    ease: "power2.out",
+                }
+            );
+        } else {
+            // Ensure skipped sections are visible without any gap
+            gsap.set(section, { opacity: 1, y: 0 }); // Force visibility
+        }
+    });
+
+    // Smooth Scroll and Trigger Animations on Button Click
+    function scrollAndAnimate(sectionSelector, animationElements = []) {
+        const section = document.querySelector(sectionSelector);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+            // Trigger animations on specified elements
+            animationElements.forEach((el) => {
+                gsap.fromTo(
+                    el.target,
+                    el.from,
+                    el.to
+                );
+            });
+        } else {
+            console.error("Section not found:", sectionSelector);
+        }
+    }
+
+    // Button Click Events
     const reelButton = document.querySelector(".reel-button");
     if (reelButton) {
-        reelButton.addEventListener("click", (event) => {
-            event.preventDefault();
-            const aboutSection = document.querySelector("#about");
+        reelButton.addEventListener("click", () => {
+            scrollAndAnimate("#about", [
+                {
+                    target: ".about-text",
+                    from: { opacity: 0, x: -100 },
+                    to: { opacity: 1, x: 0, duration: 2.5, ease: "power2.out" },
+                },
+                {
+                    target: ".about-image",
+                    from: { opacity: 0, y: 100 },
+                    to: { opacity: 1, y: 0, duration: 2.5, ease: "power2.out" },
+                },
+            ]);
+        });
+    }
 
-            // Scroll to the About section smoothly
-            aboutSection.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+    const aboutArrow = document.querySelector(".about-arrow");
+    if (aboutArrow) {
+        aboutArrow.addEventListener("click", () => {
+            scrollAndAnimate("#projects-landing", [
+                {
+                    target: ".project-landing-text",
+                    from: { opacity: 0, y: 50 },
+                    to: { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+                },
+            ]);
+        });
+    }
 
-            // Trigger animation on the About section immediately
-            gsap.fromTo("#about .about-text", { opacity: 0, x: -100 }, { opacity: 1, x: 0, duration: 2.5, ease: "power2.out" });
-            gsap.fromTo("#about .about-image", { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: 2.5, ease: "power2.out" });
+    const projectArrow = document.querySelector(".project-arrow");
+    if (projectArrow) {
+        projectArrow.addEventListener("click", () => {
+            scrollAndAnimate("#projects-section", [
+                {
+                    target: ".projects-grid",
+                    from: { opacity: 0, scale: 0.8 },
+                    to: { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
+                },
+            ]);
         });
     }
 
@@ -76,12 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
             start: "top 90%",
             end: "top 40%",
             toggleActions: "play none none reverse",
-            scrub: 1
+            scrub: 4,
         },
         opacity: 1,
         x: 0,
         duration: 2.5,
-        ease: "power2.out"
+        ease: "power2.out",
     });
 
     gsap.fromTo("#about .about-image", { opacity: 0, y: 100 }, {
@@ -90,51 +161,87 @@ document.addEventListener("DOMContentLoaded", () => {
             start: "top 90%",
             end: "top 40%",
             toggleActions: "play none none reverse",
-            scrub: 1
+            scrub: 4,
         },
         opacity: 1,
         y: 0,
         duration: 2.5,
-        ease: "power2.out"
+        ease: "power2.out",
     });
-
-    // Smooth scroll to "All Projects" landing section from the "About" arrow
-    const aboutArrow = document.querySelector(".about-arrow");
-    if (aboutArrow) {
-        aboutArrow.addEventListener("click", (event) => {
-            event.preventDefault();
-            document.querySelector(".project-landing").scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
-    }
-
-    // Smooth scroll to "Projects Grid" from the "All Projects" arrow
-    const projectArrow = document.querySelector(".scroll-indicator .arrow");
-    if (projectArrow) {
-        projectArrow.addEventListener("click", (event) => {
-            event.preventDefault();
-            document.querySelector("#projects").scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
-    }
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const title = document.querySelector(".all-projects-title");
-    const text = title.textContent;
-    title.innerHTML = ""; // Clear the text
 
     // Wrap each character in a span and set staggered delay
-    text.split("").forEach((char, index) => {
-        const span = document.createElement("span");
-        span.textContent = char;
-        span.style.setProperty('--i', index);
-        title.appendChild(span);
+    const title = document.querySelector(".all-projects-title");
+    if (title) {
+        const text = title.textContent;
+        title.innerHTML = ""; // Clear the text
+
+        text.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+            span.textContent = char;
+            span.style.setProperty("--i", index);
+            title.appendChild(span);
+        });
+    }
+
+    const cards = document.querySelectorAll(".education-item, .work-item");
+
+    cards.forEach((card) => {
+        card.addEventListener("click", () => {
+            // Prevent multiple overlays or expanded cards
+            if (document.querySelector(".overlay") || document.querySelector(".expanded")) return;
+
+            // Create an overlay
+            const overlay = document.createElement("div");
+            overlay.classList.add("overlay");
+            document.body.appendChild(overlay);
+
+            // Clone the card content for the expanded view
+            const expandedCard = card.cloneNode(true);
+            expandedCard.classList.add("expanded");
+
+            // Add a close button
+            const closeButton = document.createElement("button");
+            closeButton.textContent = "Close";
+            closeButton.classList.add("close-btn");
+            expandedCard.appendChild(closeButton);
+
+            // Append expanded card to the body
+            document.body.appendChild(expandedCard);
+
+            // Close the expanded card on button click
+            const closeExpandedCard = () => {
+                expandedCard.classList.add("closing");
+                overlay.classList.add("closing");
+                setTimeout(() => {
+                    expandedCard.remove();
+                    overlay.remove();
+                }, 300); // Match with CSS animation duration
+            };
+
+            closeButton.addEventListener("click", closeExpandedCard);
+
+            // Close the expanded card when clicking on the overlay
+            overlay.addEventListener("click", closeExpandedCard);
+        });
     });
+
+
+
 });
 
+const images = document.querySelectorAll('.background-image');
+  let currentIndex = 0;
+
+  function showImage(index) {
+    images.forEach((image,   
+ i) => {
+      image.style.opacity = i === index ? 1 : 0;
+    });
+  }
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }, 10000); // Adjust the interval as needed
+
+  showImage(currentIndex); // Show the initial image

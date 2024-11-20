@@ -1,187 +1,247 @@
-// Landing page
-
 document.addEventListener("DOMContentLoaded", () => {
-    const profileName = document.querySelector(".profile-name");
-    let lastScrollTop = window.pageYOffset;
+    console.log("DOM fully loaded");
+    gsap.registerPlugin(ScrollTrigger);
 
-    window.addEventListener("scroll", () => {
-        const scrollTop = window.pageYOffset;
+    // Typing Effect for Landing Page
+    const titles = ["Data Analyst", "Machine Learning Engineer", "AI Specialist"];
+    let index = 0;
 
-        if (scrollTop > lastScrollTop) {
-            // Scrolling down
-            profileName.classList.add("falling");
-            profileName.classList.remove("rising");
+    function typeEffect() {
+        const titleElement = document.querySelector(".typing-effect");
+        if (titleElement) {
+            let charIndex = 0;
+            let currentTitle = titles[index];
+            titleElement.innerHTML = "";
+            const typingInterval = setInterval(() => {
+                if (charIndex < currentTitle.length) {
+                    titleElement.innerHTML += currentTitle[charIndex];
+                    charIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                    setTimeout(() => {
+                        eraseEffect();
+                    }, 1500);
+                }
+            }, 100);
         } else {
-            // Scrolling up
-            profileName.classList.remove("falling");
-            profileName.classList.add("rising");
+            console.error("Typing effect element not found");
         }
+    }
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
-    });
-});
-
-
-
-const titles = ["Data Analyst", "Machine Learning Engineer", "AI Specialist"];
-let index = 0;
-
-function typeEffect() {
-    const titleElement = document.querySelector(".typing-effect");
-    let charIndex = 0;
-    let currentTitle = titles[index];
-    titleElement.innerHTML = "";
-    const typingInterval = setInterval(() => {
-        if (charIndex < currentTitle.length) {
-            titleElement.innerHTML += currentTitle[charIndex];
-            charIndex++;
-        } else {
-            clearInterval(typingInterval);
-            setTimeout(() => {
-                eraseEffect();
-            }, 1500);
+    function eraseEffect() {
+        const titleElement = document.querySelector(".typing-effect");
+        if (titleElement) {
+            let charIndex = titleElement.innerHTML.length - 1;
+            const eraseInterval = setInterval(() => {
+                if (charIndex >= 0) {
+                    titleElement.innerHTML = titleElement.innerHTML.substring(0, charIndex);
+                    charIndex--;
+                } else {
+                    clearInterval(eraseInterval);
+                    index = (index + 1) % titles.length;
+                    setTimeout(() => {
+                        typeEffect();
+                    }, 500);
+                }
+            }, 50);
         }
-    }, 100);
-}
+    }
 
-function eraseEffect() {
-    const titleElement = document.querySelector(".typing-effect");
-    let charIndex = titleElement.innerHTML.length - 1;
-    const eraseInterval = setInterval(() => {
-        if (charIndex >= 0) {
-            titleElement.innerHTML = titleElement.innerHTML.substring(0, charIndex);
-            charIndex--;
-        } else {
-            clearInterval(eraseInterval);
-            index = (index + 1) % titles.length;
-            setTimeout(() => {
-                typeEffect();
-            }, 500);
-        }
-    }, 50);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
+    // Start the typing effect when the page loads
     typeEffect();
-});
 
+    // Scroll-triggered animations for all sections except #projects-section and #projects-landing
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+        if (section.id !== "projects-section" && section.id !== "projects-landing") { // Skip these sections
+            gsap.fromTo(
+                section,
+                { opacity: 0, y: 50 }, // Initial position
+                {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%", // Trigger when the section is in view
+                        end: "top 50%",
+                        toggleActions: "play none none reverse", // Play animation and reverse
+                    },
+                    opacity: 1,
+                    y: 0, // Reset position
+                    duration: 1.5,
+                    ease: "power2.out",
+                }
+            );
+        } else {
+            // Ensure skipped sections are visible without any gap
+            gsap.set(section, { opacity: 1, y: 0 }); // Force visibility
+        }
+    });
 
+    // Smooth Scroll and Trigger Animations on Button Click
+    function scrollAndAnimate(sectionSelector, animationElements = []) {
+        const section = document.querySelector(sectionSelector);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
 
-// About Section
-document.addEventListener("DOMContentLoaded", () => {
-    const aboutSection = document.querySelector("#about");
-
-    function checkScroll() {
-        const sectionPosition = aboutSection.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-
-        if (sectionPosition < screenPosition) {
-            aboutSection.classList.add("visible");
-            window.removeEventListener("scroll", checkScroll); // Remove listener after visible
+            // Trigger animations on specified elements
+            animationElements.forEach((el) => {
+                gsap.fromTo(
+                    el.target,
+                    el.from,
+                    el.to
+                );
+            });
+        } else {
+            console.error("Section not found:", sectionSelector);
         }
     }
 
-    window.addEventListener("scroll", checkScroll);
-    checkScroll(); // Run once in case section is already in view
-});
-
-
-// Education
-
-document.addEventListener("DOMContentLoaded", () => {
-    const educationSection = document.querySelector("#education");
-
-    function checkScroll() {
-        const sectionPosition = educationSection.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
-
-        if (sectionPosition < screenPosition) {
-            educationSection.classList.add("visible");
-        }
+    // Button Click Events
+    const reelButton = document.querySelector(".reel-button");
+    if (reelButton) {
+        reelButton.addEventListener("click", () => {
+            scrollAndAnimate("#about", [
+                {
+                    target: ".about-text",
+                    from: { opacity: 0, x: -100 },
+                    to: { opacity: 1, x: 0, duration: 2.5, ease: "power2.out" },
+                },
+                {
+                    target: ".about-image",
+                    from: { opacity: 0, y: 100 },
+                    to: { opacity: 1, y: 0, duration: 2.5, ease: "power2.out" },
+                },
+            ]);
+        });
     }
 
-    window.addEventListener("scroll", checkScroll);
-    checkScroll(); // Run once in case section is already in view
-});
+    const aboutArrow = document.querySelector(".about-arrow");
+    if (aboutArrow) {
+        aboutArrow.addEventListener("click", () => {
+            scrollAndAnimate("#projects-landing", [
+                {
+                    target: ".project-landing-text",
+                    from: { opacity: 0, y: 50 },
+                    to: { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" },
+                },
+            ]);
+        });
+    }
 
+    const projectArrow = document.querySelector(".project-arrow");
+    if (projectArrow) {
+        projectArrow.addEventListener("click", () => {
+            scrollAndAnimate("#projects-section", [
+                {
+                    target: ".projects-grid",
+                    from: { opacity: 0, scale: 0.8 },
+                    to: { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
+                },
+            ]);
+        });
+    }
 
-//Work Experience
-document.addEventListener("DOMContentLoaded", () => {
-    const readMoreLinks = document.querySelectorAll(".read-more");
+    // Scroll-triggered animations for the About section
+    gsap.fromTo("#about .about-text", { opacity: 0, x: -100 }, {
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 90%",
+            end: "top 40%",
+            toggleActions: "play none none reverse",
+            scrub: 4,
+        },
+        opacity: 1,
+        x: 0,
+        duration: 2.5,
+        ease: "power2.out",
+    });
 
-    readMoreLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault();
-            const targetId = link.getAttribute("data-target");
-            const expandedContent = document.getElementById(targetId);
-            if (expandedContent) {
-                expandedContent.classList.add("visible");
-            }
+    gsap.fromTo("#about .about-image", { opacity: 0, y: 100 }, {
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top 90%",
+            end: "top 40%",
+            toggleActions: "play none none reverse",
+            scrub: 4,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 2.5,
+        ease: "power2.out",
+    });
+
+    // Wrap each character in a span and set staggered delay
+    const title = document.querySelector(".all-projects-title");
+    if (title) {
+        const text = title.textContent;
+        title.innerHTML = ""; // Clear the text
+
+        text.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+            span.textContent = char;
+            span.style.setProperty("--i", index);
+            title.appendChild(span);
+        });
+    }
+
+    const cards = document.querySelectorAll(".education-item, .work-item");
+
+    cards.forEach((card) => {
+        card.addEventListener("click", () => {
+            // Prevent multiple overlays or expanded cards
+            if (document.querySelector(".overlay") || document.querySelector(".expanded")) return;
+
+            // Create an overlay
+            const overlay = document.createElement("div");
+            overlay.classList.add("overlay");
+            document.body.appendChild(overlay);
+
+            // Clone the card content for the expanded view
+            const expandedCard = card.cloneNode(true);
+            expandedCard.classList.add("expanded");
+
+            // Add a close button
+            const closeButton = document.createElement("button");
+            closeButton.textContent = "Close";
+            closeButton.classList.add("close-btn");
+            expandedCard.appendChild(closeButton);
+
+            // Append expanded card to the body
+            document.body.appendChild(expandedCard);
+
+            // Close the expanded card on button click
+            const closeExpandedCard = () => {
+                expandedCard.classList.add("closing");
+                overlay.classList.add("closing");
+                setTimeout(() => {
+                    expandedCard.remove();
+                    overlay.remove();
+                }, 300); // Match with CSS animation duration
+            };
+
+            closeButton.addEventListener("click", closeExpandedCard);
+
+            // Close the expanded card when clicking on the overlay
+            overlay.addEventListener("click", closeExpandedCard);
         });
     });
+
+
+
 });
 
-function closeExpanded(targetId) {
-    const expandedContent = document.getElementById(targetId);
-    if (expandedContent) {
-        expandedContent.classList.remove("visible");
-    }
-}
+const images = document.querySelectorAll('.background-image');
+  let currentIndex = 0;
 
-
-// Projects
-
-document.addEventListener("DOMContentLoaded", () => {
-    const readMoreLinks = document.querySelectorAll(".read-more");
-
-    readMoreLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            event.preventDefault();
-            const targetId = link.getAttribute("data-target");
-            const expandedContent = document.getElementById(targetId);
-            if (expandedContent) {
-                expandedContent.classList.add("visible");
-            }
-        });
+  function showImage(index) {
+    images.forEach((image,   
+ i) => {
+      image.style.opacity = i === index ? 1 : 0;
     });
-});
+  }
 
-function closeExpanded(targetId) {
-    const expandedContent = document.getElementById(targetId);
-    if (expandedContent) {
-        expandedContent.classList.remove("visible");
-    }
-}
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }, 10000); // Adjust the interval as needed
 
-
-function openProject(card) {
-    const modal = document.getElementById("projectModal");
-    const modalThumbnail = modal.querySelector(".modal-thumbnail");
-    const modalDescription = modal.querySelector(".modal-details p");
-    const projectImages = modal.querySelectorAll(".project-images img");
-
-    // Set the modal thumbnail and description dynamically based on the clicked card
-    modalThumbnail.src = card.querySelector(".thumbnail").src;
-    modalDescription.textContent = card.querySelector(".project-description").textContent;
-
-    // Set project images (replace these with your actual images for each project)
-    projectImages[0].src = "project-image1.jpg";
-    projectImages[1].src = "project-image2.jpg";
-    projectImages[2].src = "project-image3.jpg";
-
-    // Show the modal
-    modal.style.display = "flex";
-}
-
-function closeProject() {
-    const modal = document.getElementById("projectModal");
-    modal.style.display = "none";
-}
-
-// Close the modal when clicking outside the modal content
-window.onclick = function(event) {
-    const modal = document.getElementById("projectModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
+  showImage(currentIndex); // Show the initial image
