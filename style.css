@@ -449,7 +449,7 @@ section.visible {
     max-width: 1200px; /* Limits the grid's maximum width */
     margin: 0 auto; /* Center-align the grid within the container */
     background-color: rgb(253, 240, 88); /* Background color */
-    background-image: url("/images/bi/projs.ppng"); /* Background image */
+    background-image: url("projs.png"); /* Background image */
     background-size: cover; /* Ensure the image covers the whole area */
     background-position: center; /* Centers the image */
     border-radius: 12px; /* Rounds the grid container, if desired */
