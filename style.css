@@ -811,6 +811,7 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Place the video behind other   
+    z-index: -1;
+    opacity: 1; /* Place the video behind other   
  content */
 }
