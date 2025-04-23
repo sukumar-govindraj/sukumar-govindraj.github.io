@@ -462,3 +462,17 @@ footer p {
   object-fit: cover;     /* crop/zoom to fill the box */
   border-radius: 1rem;   /* soften the corners */
 }
+
+#skills .article-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 2rem;        /* vertical and horizontal gaps */
+  align-items: center;     /* vertically center each icon+text */
+  justify-items: start;    /* left-align the contents in each cell */
+}
+
+/* Allow your <article> to size itself instead of fixed 10rem */
+#skills article {
+  width: auto;
+  justify-content: flex-start;
+}
