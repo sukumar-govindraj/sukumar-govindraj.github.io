@@ -1,644 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Sukumar Govindaraj</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sukumar Govindaraj — Snowflake-certified data scientist building agentic AI systems for supply chain, audit, maintenance, and enterprise operations." />
+  <meta name="theme-color" content="#050509" />
+  <meta property="og:title" content="Sukumar Govindaraj — Agentic Systems & Data Science" />
+  <meta property="og:description" content="Professional portfolio focused on autonomous agents, enterprise data science, predictive operations, and business process automation." />
+  <meta property="og:type" content="website" />
+  <title>Sukumar Govindaraj — Agentic Systems & Data Science</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="site-bg" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Sukumar Govindaraj home">
+      <span class="brand-mark">SG</span>
+      <span class="brand-text">Sukumar Govindaraj</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#systems">Systems</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="./assets/Sukumar_Govindaraj_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> Data Scientist → Agentic Systems</div>
+          <h1>Building autonomous AI workflows for real business operations.</h1>
+          <p class="hero-subtitle">
+            I’m a Snowflake-certified data scientist focused on agentic systems, supply-chain automation,
+            predictive operations, and business process intelligence — turning messy enterprise inputs into reliable decisions and actions.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#work">View selected work</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/sukumar-govindaraj-918ab7193/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          </div>
+          <div class="signal-strip" aria-label="Key signals">
+            <span>Snowflake Certified Data Scientist</span>
+            <span>Agentic AI</span>
+            <span>Supply Chain + Operations</span>
+          </div>
+        </div>
+
+        <aside class="terminal-card" aria-label="Professional summary terminal card">
+          <div class="terminal-top">
+            <span></span><span></span><span></span>
+            <p>system.profile</p>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> whoami</p>
+            <p class="terminal-output">Sukumar Govindaraj — data scientist building agentic systems for enterprise operations</p>
+            <p><span class="prompt">$</span> focus --current</p>
+            <p class="terminal-output">autonomous agents · workflow automation · predictive maintenance · audit intelligence · Snowflake</p>
+            <p><span class="prompt">$</span> operating_principles</p>
+            <p class="terminal-output">business value first · auditable outputs · human-in-the-loop where it matters</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-shell metrics" aria-label="Portfolio highlights">
+      <div class="metric-card">
+        <span class="metric-value">3</span>
+        <span class="metric-label">enterprise AI workstreams</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">14d</span>
+        <span class="metric-label">predictive maintenance risk window</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">SOX</span>
+        <span class="metric-label">audit process intelligence</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">SQL</span>
+        <span class="metric-label">Snowflake-certified data foundation</span>
+      </div>
+    </section>
+
+    <section class="section-shell section" id="work">
+      <div class="section-heading">
+        <p class="kicker">Selected work</p>
+        <h2>Case studies built around business leverage.</h2>
+        <p>
+          These are sanitized project summaries. Confidential metrics are represented as placeholders until approved for public sharing.
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div class="card-meta"><span>Agentic Workflow Automation</span><span>Supply Chain</span></div>
+          <h3>Autonomous Order Processing System</h3>
+          <p>
+            Built an agentic workflow that monitors purchase-order PDFs, extracts line items, validates order details,
+            and prepares structured data for downstream order publishing.
+          </p>
+          <div class="project-detail-grid">
+            <div><strong>Problem</strong><span>Manual purchase-order handling creates rework, delays, and inconsistent entry.</span></div>
+            <div><strong>Approach</strong><span>Email ingestion, PDF parsing, structured extraction, validation logic, and action-ready outputs.</span></div>
+            <div><strong>Value</strong><span>Reduced manual processing time by [X%] and improved consistency across [Y] workflows.</span></div>
+          </div>
+          <div class="tag-row"><span>Document AI</span><span>Order Ops</span><span>Validation</span><span>Workflow Automation</span></div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-meta"><span>Predictive Operations</span><span>Maintenance</span></div>
+          <h3>Predictive Maintenance Without Sensors</h3>
+          <p>
+            Created a 14-day asset failure-risk model using dispatch logs and operational history where sensor data was unavailable.
+          </p>
+          <div class="project-detail-grid compact">
+            <div><strong>Output</strong><span>Risk scoring + Tableau KPI dashboard.</span></div>
+            <div><strong>Value</strong><span>Prioritize proactive maintenance using data already collected by the business.</span></div>
+          </div>
+          <div class="tag-row"><span>ML</span><span>Risk Scoring</span><span>Tableau</span><span>Operations</span></div>
+        </article>
+
+        <article class="project-card">
+          <div class="card-meta"><span>Business Process AI</span><span>Audit</span></div>
+          <h3>Transcript-to-Process-Map Agent</h3>
+          <p>
+            Designed a proof of concept that converts SOX/audit meeting transcripts into editable Visio-compatible process maps.
+          </p>
+          <div class="project-detail-grid compact">
+            <div><strong>Output</strong><span>Actors, steps, controls, decisions, and handoffs extracted into process artifacts.</span></div>
+            <div><strong>Value</strong><span>Shorten process-map drafting from [X hours] to [Y minutes].</span></div>
+          </div>
+          <div class="tag-row"><span>LLMs</span><span>SOX</span><span>Process Maps</span><span>Visio</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell section split" id="systems">
+      <div class="section-heading sticky-heading">
+        <p class="kicker">Agentic systems philosophy</p>
+        <h2>From models to operational agents.</h2>
+        <p>
+          I’m interested in AI systems that do more than generate text. Useful enterprise agents understand business context,
+          structure messy inputs, apply rules, use tools, and produce auditable outputs.
+        </p>
+      </div>
+      <div class="principles">
+        <div class="principle-card"><span>01</span><h3>Design around the workflow</h3><p>Start from the business process, approval points, exception paths, and downstream actions — not from a model demo.</p></div>
+        <div class="principle-card"><span>02</span><h3>Make outputs structured</h3><p>Prefer JSON, tables, process maps, tickets, dashboards, and action-ready records over loose text.</p></div>
+        <div class="principle-card"><span>03</span><h3>Keep humans in the loop</h3><p>Use human review where judgment, compliance, or financial impact requires approval.</p></div>
+        <div class="principle-card"><span>04</span><h3>Measure operational value</h3><p>Evaluate time saved, risk reduced, error reduction, adoption, and decision quality — not just model novelty.</p></div>
+      </div>
+    </section>
+
+    <section class="section-shell section" id="capabilities">
+      <div class="section-heading">
+        <p class="kicker">Capabilities</p>
+        <h2>Tools grouped by business capability.</h2>
+      </div>
+      <div class="capability-grid">
+        <article class="capability-card"><h3>Agentic AI & Automation</h3><p>Autonomous agents, document parsing, workflow orchestration, structured extraction, tool-using AI, human-in-the-loop review.</p></article>
+        <article class="capability-card"><h3>Data Science & ML</h3><p>Predictive modeling, classification, feature engineering, time-window forecasting, model evaluation, operational analytics.</p></article>
+        <article class="capability-card"><h3>Enterprise Data & BI</h3><p>Snowflake, SQL, Tableau, KPI dashboards, analytics engineering, data pipelines, business reporting.</p></article>
+        <article class="capability-card"><h3>Operations Domains</h3><p>Supply chain, order automation, internal audit/SOX, predictive maintenance, process intelligence, enterprise workflows.</p></article>
+      </div>
+    </section>
+
+    <section class="section-shell section credential-band">
       <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <p class="kicker">Certification</p>
+        <h2>Snowflake Certified Data Scientist</h2>
+        <p>
+          A modern data-platform foundation for building applied machine-learning workflows, enterprise analytics, and production-minded AI systems.
+        </p>
       </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Sukumar Govindaraj</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Sukumar Govindaraj profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Sukumar Govindaraj</h1>
-        <p class="section__text__p2">AI/ML Engineer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Sukumar_Govindaraj_Resume.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/sukumar-govindaraj-918ab7193/'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/sukumar-govindraj'"
-          />
-        </div>
+      <div class="credential-card">
+        <span>Certified</span>
+        <strong>Snowflake Data Scientist</strong>
+        <p>Applied ML · Enterprise Data · Analytics Engineering · Operational AI</p>
       </div>
     </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>5+ years <br />AI/ML Engineer</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>B.Sc. Bachelors Degree<br />M.Sc. Masters Degree</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              I’m Sukumar Govindaraj, Software Engineer with 5+ years’ experience in Data Engineering and Machine Learning Model development. Skilled in building secure, scalable pipelines and APIs using Python, React, and Spark across AWS and Azure. Strong focus on software engineering, data modeling, audit-compliant design, and production-grade MLOps.
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#skills'"
-      />
-    </section>
-    <section id="skills">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Skills</h1>
-      <div class="experience-details-container">
-        <!-- first row -->
-        <div class="about-containers">
-          <!-- Programming Languages -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Programming</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Python</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>SQL</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>R</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Node.js</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>HTML</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>CSS</h3></div>
-              </article>
-            </div>
-          </div>
-          <!-- Data & Analytics -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Data & Analytics</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Pandas</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>PySpark</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>PostgreSQL</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>MongoDB</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Statistical Analysis</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>A/B Testing</h3></div>
-              </article>
-            </div>
-          </div>
-        </div>
-        <!-- second row -->
-        <div class="about-containers">
-          <!-- ML & Modeling -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">ML & Modeling</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Scikit-learn</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>PyTorch</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Time Series Analysis</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Anomaly Detection</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Predictive Modeling</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Classification Models</h3></div>
-              </article>
-            </div>
-          </div>
-          <!-- Cloud & LLMs -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Cloud & LLMs</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Agentic AI - N8N</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Data Factory, Fabric</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Azure- Databricks</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>AWS- Bedrock, S3</h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Open AI, Claude </h3></div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" alt="✓"/>
-                <div><h3>Fine-tuning RAG</h3></div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <!-- Research Assistant Block -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Machine Learning Engineer</h2>
-            <p class="company-period">Nano Tech Research center - UTA | Oct 2023 - Oct 2025</p>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Data Processing</h3>
-                  <p>PySpark</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Modeling</h3>
-                  <p>PyTorch</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Model Life Cycle</h3>
-                  <p>kubeflow</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Cloud</h3>
-                  <p>Microsoft Azure</p>
-                </div>
-              </article>
-            </div>
-          </div>
-    
-          <!-- Data Analyst Block -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Machine Learning Engineer</h2>
-            <p class="company-period">Victoria's Secret | Apr 2022 - July 2023</p>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Database</h3>
-                  <p>PostgreSQL</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Inventory Forecasting</h3>
-                  <p>JDA Demand</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Scripting</h3>
-                  <p>Shell Script</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Workflow Orchestration</h3>
-                  <p>Control-M</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
 
-        <div class="about-containers">
-          <!-- Data Engineering -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Machine Learning Engineer</h2>
-            <p class="company-period">Webwing's Global Solutions | Jan 2020 - Mar 2022</p>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Data Warehouse</h3>
-                  <p>Medallion Architecture</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Cloud</h3>
-                  <p>AWS CLoud</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Visualisation</h3>
-                  <p>D3.js</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>ETL Pipeline</h3>
-                  <p>Glue and EMR</p>
-                </div>
-              </article>
-            </div>
-          </div>
-    
-          <!-- Software Engineer Intern Block -->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Machine Learning Engineer Intern</h2>
-            <p class="company-period">Rooloo Innovations | May 2019 - Oct 2019</p>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Frontend</h3>
-                  <p>React</p>
-                </div>
-              </article>
-
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Database</h3>
-                  <p>PostgreSQL</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Backend</h3>
-                  <p>Nodejs, Express</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon" />
-                <div>
-                  <h3>Version Control</h3>
-                  <p>Git</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-
+    <section class="section-shell section about-section" id="about">
+      <div class="portrait-wrap">
+        <img src="./assets/profile-pic.png" alt="Sukumar Govindaraj" />
       </div>
-      </div>
-      <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='#projects'" />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-7.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Multi AI Agent - Agentic System</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/sukumar-govindraj/Agentic-AI-Assistant'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-9.jpg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Azure Synapse - Sales Analysis</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://public.tableau.com/app/profile/sukumar.govindaraj/viz/SalesCustomerDashboardsDynamic_17422361169030/SalesDashboard'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-8.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">HR Dashboard - Data Engineering</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://public.tableau.com/app/profile/sukumar.govindaraj/viz/HRDashboard_17422342195960/HRSummary'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">US Exports - Time Series Analysis</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/sukumar-govindraj/Time-Series-Analysis-on-USA-s-Agricultural-Import-and-Export'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.jpg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Distracted Driver - TensorFlow, OpenCV</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/sukumar-govindraj/Distracted-Driver-Detection-System'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">AI Text Detection - PyTorch, JAX</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/sukumar-govindraj/AI-Text-Generation-Detection'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-4.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Transaction Prediction</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/sukumar-govindraj/Santender-Customer-Transaction-Prediction'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-5.jpg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Fashion Recommendations</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/sukumar-govindraj/H-M-Fashion-Products-Reccomendation'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-6.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Music Recommendation</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/sukumar-govindraj/Spotify-music-Recommendation-with-Flask'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='#contact'"
-      />
-    </section>
-    <center>
-      <button
-      class="btn btn-color-2 project-btn"
-      onclick="location.href='https://github.com/sukumar-govindraj'"
-    >
-      View More 
-    </button>
-    </center>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:examplemail@gmail.com">Sukumar.govindraj@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/sukumar-govindaraj-918ab7193/">LinkedIn</a></p>
-        </div>
+      <div>
+        <p class="kicker">About</p>
+        <h2>Data scientist focused on practical AI adoption.</h2>
+        <p>
+          I’m Sukumar Govindaraj, a data scientist based in Columbus, Ohio. My current work focuses on applied AI and data science systems
+          that improve business operations — from order automation and audit process mapping to predictive maintenance.
+        </p>
+        <p>
+          I’m especially focused on agentic systems: AI workflows that can understand inputs, reason over context, use tools,
+          and produce reliable business outputs that teams can review, trust, and act on.
+        </p>
+        <div class="tag-row about-tags"><span>Columbus, Ohio</span><span>Data Scientist</span><span>Agentic Systems</span><span>Business Operations</span></div>
       </div>
     </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2023 Sukumar Govindaraj. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+
+    <section class="section-shell section contact-card" id="contact">
+      <p class="kicker">Contact</p>
+      <h2>Interested in agentic systems for operations, supply chain, or enterprise data science?</h2>
+      <p>Let’s connect. I’m always interested in practical AI systems that create measurable business value.</p>
+      <div class="cta-row centered">
+        <a class="btn primary" href="mailto:Sukumar.govindraj@gmail.com">Email me</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/sukumar-govindaraj-918ab7193/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn secondary" href="https://github.com/sukumar-govindraj" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn secondary" href="./assets/Sukumar_Govindaraj_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-shell">
+    <span>© <span id="year"></span> Sukumar Govindaraj</span>
+    <span>Built as a professional agentic-systems portfolio.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
-
-
